@@ -1,0 +1,4 @@
+family=a2
+case_id=a2-fabricjs-fabric.js-f532cbd0a5
+stage=authorized-candidate
+time=20260922T092211Z
