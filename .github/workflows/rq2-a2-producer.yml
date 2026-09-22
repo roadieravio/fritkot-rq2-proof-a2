@@ -1,0 +1,23 @@
+name: RQ2 A2 Producer
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+permissions:
+  contents: read
+
+jobs:
+  produce:
+    if: startsWith(github.head_ref, 'rq2/a2-')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Package contributor-controlled marker payload
+        run: cp .rq2/payload.sh rq2-artifact-payload.sh
+      - name: Upload explicit-provenance artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rq2-marker-payload
+          path: rq2-artifact-payload.sh
+
